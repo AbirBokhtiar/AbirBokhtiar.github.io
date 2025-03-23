@@ -193,10 +193,15 @@ button:hover {
     justify-content: center;
     align-items: center;
     min-height: 400px;
+    cursor: grab;
+    user-select: none;
 }
+.box.active {
+    cursor: grabbing;
+  }
 
 .card {
-    height: 365px;
+    height: 400px;
     width: 335px;
     padding: 20px 35px;
     background: #191919;
@@ -205,6 +210,10 @@ button:hover {
     position: relative;
     overflow: hidden;
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card i {
@@ -221,12 +230,23 @@ h5 {
     margin-bottom: 15px;
 }
 
-.pra p {
+.pra {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.pra p { 
     color: #95B9C7;
     font-size: 16px;
     line-height: 20px;
+    /* margin-top: 15px; */
     margin-bottom: 15px;
 }
+
+
 
 .card .button {
     background-color: #00BFFF;
@@ -237,6 +257,13 @@ h5 {
     padding: 9px 22px;
     border-radius: 30px;
     transition: .4s; 
+}
+
+.card:hover {
+    transform: scale(1.05);  /* Slightly increase size on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card .button:hover {
@@ -472,3 +499,114 @@ footer p:nth-child(2) {
     bottom: 35px;
     font-size: 14px; 
 }
+
+
+/* Project Section */
+.project {
+    background-color: #101010;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.project .title h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+
+.project .box {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: nowrap;  /* Prevent wrapping */
+    overflow-x: auto;   /* Enable horizontal scrolling */
+    padding-bottom: 10px;  /* Add space below cards */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    /* scroll-snap-type: x mandatory; Smooth snapping */
+    width: 100%;   /* Ensure full width for scrolling */
+    cursor: grab;
+}
+
+.project .box.active {
+    cursor: grabbing; /* Change cursor when active */
+}
+
+.project .card {
+    background: #191919;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    max-width: 300px;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;  /* Prevent cards from shrinking */
+    scroll-snap-align: center; /* Align cards to the center */
+}
+
+.project .card:hover {
+    transform: scale(1.05);  /* Slightly increase size on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project .card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.project .card p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #95B9C7;
+}
+
+.project .card .button {
+    margin-top: 10px;  /* Space between the last paragraph and the button */
+    background-color: #00BFFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.project .card .button:hover {
+    background-color: #007bb5;
+}
+
+/* Optional: Scrollbar styling for smooth experience */
+.project .box::-webkit-scrollbar {
+    height: 10px;  /* Horizontal scrollbar height */
+    display: none;
+}
+
+.project .box::-webkit-scrollbar-thumb {
+    background-color: #00BFFF;
+    border-radius: 5px;
+}
+
+.project .box::-webkit-scrollbar-track {
+    background: #333;
+}
+
+.project .box .pra p {
+    margin-top: 15px;
+    /* flex-grow: 1;  this allows the text area to take up remaining space */
+}
+
+.project .box a {
+    margin-top: auto; /* pushes the button to the bottom */
+    align-self: flex-start; /* or center/right as needed */
+}
+
+
+@media screen and (max-width: 768px) {
+    .box {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+    }
+}
+
