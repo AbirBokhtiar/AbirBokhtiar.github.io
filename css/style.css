@@ -96,15 +96,15 @@ h4 {
     width: 45%;
     height: 75%;
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     right: 100px;
 }
 
 .img-box img {
-    height: 100%;
+    height: 80%;
     border-radius: 50%;
     position: absolute;
-    left: 60%;
+    left: 65%;
     bottom: 0;
     transform: translateX(-50%);
     transition: bottom 1s, left 1s;
@@ -405,8 +405,8 @@ h5 {
 .ui-widget {
     position: relative;
     display: inline-block;
-    width: 11.5rem;
-    height: 11.5rem;
+    width: 10.5rem;
+    height: 10.5rem;
     margin: 1rem;
     border: .9rem solid #00BFFF;
     text-align: center;
@@ -510,7 +510,7 @@ footer p:nth-child(2) {
 }
 
 .project .title h2 {
-    font-size: 2.5em;
+    font-size: 5em;
     margin-bottom: 20px;
 }
 
@@ -521,6 +521,7 @@ footer p:nth-child(2) {
     gap: 20px;
     flex-wrap: nowrap;  /* Prevent wrapping */
     overflow-x: auto;   /* Enable horizontal scrolling */
+    padding-top: 10px;
     padding-bottom: 10px;  /* Add space below cards */
     scroll-behavior: smooth; /* Smooth scrolling */
     /* scroll-snap-type: x mandatory; Smooth snapping */
@@ -603,11 +604,165 @@ footer p:nth-child(2) {
 }
 
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .box {
         flex-direction: column;
         align-items: center;
         overflow-x: hidden;
     }
+} */
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
 }
 
+
+/* ------------------------------------ */
+/* RESPONSIVENESS */
+/* ------------------------------------ */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .img-box {
+        position: static;
+        width: 100%;
+        text-align: center;
+        margin-top: 40px;
+    }
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    nav ul {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background: #000;
+        width: auto;
+        flex-direction: column;
+        padding: 30px;
+        display: none;
+        border-radius: 0 0 0 10px;
+        z-index: 9999;
+    }
+
+    nav ul.open {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    h1 {
+        font-size: 50px;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about .about-text {
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    .about img {
+        margin-bottom: 30px;
+        height: 0%;
+        width: 0px;
+    }
+
+    .content {
+        position: static;
+        transform: translateY(0);
+        padding: 50px 30px;
+        text-align: center;
+    }
+
+    .content .contact_con {
+        margin-top: 200px;
+        margin-bottom: auto;
+    }
+
+    .img-box {
+        width: 35%;
+        height: 65%;
+        position: absolute;
+        bottom: 10%;
+        top: 60px;
+        right: 200px;
+        left: 200px;
+    }
+
+    .img-box img {
+        height: 50%;
+        border-radius: 50%;
+        position: absolute;
+        left: 70%;
+        bottom: 0;
+        transform: translateX(-50%);
+        transition: bottom 1s, left 1s;
+    }
+
+    .education .title h2 {
+        width: 500px;
+    }
+
+    .education .box {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .project .title h2 {
+        width: 500px;
+    }
+
+    .project .box {
+        flex-direction: row;
+        align-items: center;
+        height: 90%;
+    }
+
+    .skillsets {
+        flex-direction: column;
+        height: auto;
+    }
+
+    
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 34px;
+    }
+    
+    .btn {
+        padding: 8px 20px;
+    }
+
+    .intro {
+        padding-top: 140px;
+    }
+
+    .img-box img {
+        width: 200px;
+    }
+}
