@@ -26,12 +26,15 @@
 				<li><a href="#skillsets">Skills</a></li>
 			</ul>
 			<a href="https://drive.google.com/file/d/1ZDfhypxCh22ueHYRVxDlBinTB2mItpt3/view?usp=sharing" class="btn" target="_blank">Curriculum Vitae</a>
+			<div class="hamburger" onclick="toggleMenu()">
+				<i class="fas fa-bars"></i>
+			</div>
 		</nav>
 
 		<div class="content">
 			    <h1>Abir <span>Bokhtiar</span></h1>
 			    <h3>A Computer Science & Engineering Student/Developer.</h3>
-			    <button type="button" onclick="location.href='#contact';">Contact Me</button>
+			    <button type="button" onclick="location.href='#contact';" class="contact_con">Contact Me</button>
 		</div>
 			<div class="img-box">
 				<img src="image/img12.2.jpg" alt="avatar" class="back-img">
@@ -91,7 +94,7 @@
 					<p>Department of CSE</p>
 					<p>American International University-Bangladesh</p>
 					<p>Dhaka</p>
-					<p>CGPA: 3.96 on a scale of 4</p>
+					<p>CGPA: 3.95 on a scale of 4</p>
 					<!-- <p style="text-align: center;">
 						<a class="button" href="#">Read More</a>
 					</p> -->
@@ -286,7 +289,7 @@
 			<a href="https://www.linkedin.com/in/abir-bokhtiar10/" target="_blank"><i class="fab fa-linkedin"></i></a>
 			<a href="https://www.facebook.com/BokhtiarAbir/" target="_blank"><i class="fab fa-facebook-f"></i></a>
 			<a href="https://github.com/AbirBokhtiar" target="_blank"><i class="fab fa-github"></i></a>
-			<a href="https://www.instagram.com/abirknows" target="_blank"><i class="fab fa-instagram"></i></a>
+			<a href="https://www.instagram.com/awwbir_" target="_blank"><i class="fab fa-instagram"></i></a>
 			<a href="https://www.abirbokhtiar107@gmail.com" target="_blank"><i class="fab fa-google"></i></a>
 		</div>
 		<p class="end">All rights reserved copyright@2023</p>
@@ -341,11 +344,11 @@
 	slider.scrollLeft = scrollLeft - walk;
 	});
 
+	function toggleMenu() {
+	const navLinks = document.querySelector("nav ul");
+	navLinks.classList.toggle("open");
+	}
+
   </script>
   
 </html>
-
-
-
-
-
