@@ -1,0 +1,473 @@
+/* =========================
+   Responsive Modern CSS
+   - Mobile-first
+   - Glassmorphism accents
+   - Smooth animations
+   - Works with provided HTML
+   ========================= */
+
+/* -------- variables -------- */
+:root{
+  --bg-1: #000814;
+  --bg-2: #001d3d;
+  --card-bg: rgba(255,255,255,0.03);
+  --glass-border: rgba(255,255,255,0.06);
+  --accent: #00BFFF;
+  --muted: #95B9C7;
+  --text: #e9eef8;
+  --radius: 14px;
+  --container: 1150px;
+  --gutter: 20px;
+  --transition: 0.28s ease;
+}
+
+/* -------- base reset -------- */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: 'Josefin Sans', sans-serif;
+  color:var(--text);
+  background: linear-gradient(180deg,var(--bg-1) 0%, #070717 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  -webkit-text-size-adjust:100%;
+}
+
+/* utility containers */
+.container{
+  max-width:var(--container);
+  margin:0 auto;
+  padding-left:calc(var(--gutter));
+  padding-right:calc(var(--gutter));
+  width:100%;
+}
+
+/* small helpers */
+.h-hidden{display:none}
+.center{display:flex;align-items:center;justify-content:center}
+.mt-8{margin-top:2rem}
+
+/* -------- NAV -------- */
+nav{
+  width:100%;
+  padding:18px 0;
+  position:fixed;
+  top:0;left:0;
+  z-index:999;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.12));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+
+nav .container{display:flex;align-items:center;justify-content:space-between;gap:12px}
+
+.logo{
+  color:var(--text);
+  font-size:22px;
+  letter-spacing:1px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.logo span{color:var(--accent);font-weight:800}
+
+/* nav links */
+nav ul{
+  display:flex;
+  gap:18px;
+  list-style:none;
+  align-items:center;
+}
+
+nav ul li{display:inline-block}
+nav ul li a{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:600;
+  padding:8px 10px;
+  border-radius:8px;
+  transition: all var(--transition);
+  text-transform:capitalize;
+  font-size:15px;
+}
+nav ul li a:hover,
+nav ul li a:focus{
+  color:#fff;
+  background: rgba(0,191,255,0.06);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+/* cv button */
+.btn{
+  background:var(--accent);
+  color:#fff;
+  padding:9px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  border:1px solid transparent;
+  transition: all var(--transition);
+  font-size:14px;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,191,255,0.14)}
+
+/* -------- INTRO / HERO -------- */
+.intro{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:100px; /* space for nav */
+  padding-bottom:40px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* make the inner layout fluid */
+.intro .container{
+  display:flex;
+  gap:30px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap-reverse; /* mobile: stack content then image */
+}
+
+/* content text */
+.content{
+  flex:1 1 420px;
+  max-width:640px;
+  padding:12px 6px;
+  position:relative;
+  z-index:2;
+}
+.content h1{
+  font-size:44px;
+  line-height:1.02;
+  margin-bottom:10px;
+  color:var(--text);
+  letter-spacing:0.6px;
+}
+.content h1 span{color:var(--accent)}
+.content h3{
+  color:var(--muted);
+  font-size:17px;
+  margin-bottom:18px;
+  font-weight:500;
+}
+.content button{
+  background:transparent;
+  border:2px solid var(--accent);
+  color:var(--accent);
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:700;
+  cursor:pointer;
+  transition: all var(--transition);
+}
+.content button:hover{
+  background:var(--accent);
+  color:#001;
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(0,191,255,0.12);
+}
+
+/* image box */
+.img-box{
+  flex:0 0 360px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.img-box img{
+  width:320px;
+  max-width:84vw;
+  height:auto;
+  border-radius:999px;
+  object-fit:cover;
+  border:6px solid rgba(255,255,255,0.04);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.6), 0 0 40px rgba(0,191,255,0.06) inset;
+  transition: transform .6s ease, box-shadow .4s ease;
+}
+.img-box img:hover{transform:translateY(-6px) rotate(-1deg)}
+
+/* subtle decorative gradient circle (for large screens) */
+.intro::after{
+  content:"";
+  position:absolute;
+  right:-120px;
+  bottom:-110px;
+  width:420px;height:420px;
+  background: radial-gradient(circle at 30% 30%, rgba(0,191,255,0.06), transparent 35%);
+  filter: blur(40px);
+  pointer-events:none;
+}
+
+/* -------- ABOUT -------- */
+.about{
+  padding:70px 0;
+  background: linear-gradient(180deg, rgba(5,6,12,0.02), transparent 40%);
+}
+.about .main{
+  display:flex;
+  gap:36px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.about img{
+  width:420px;
+  max-width:48%;
+  border-radius:12px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+  object-fit:cover;
+}
+.about-text{
+  flex:1 1 420px;
+  max-width:640px;
+}
+.about-text h2{
+  font-size:36px;
+  color:var(--text);
+  margin-bottom:8px;
+}
+.about-text h5{
+  color:var(--muted);
+  font-size:18px;
+  margin-bottom:14px;
+}
+.about-text p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.6;
+  margin-bottom:18px;
+}
+
+/* about button */
+.about-text button{
+  background:var(--accent);
+  border:0;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+/* -------- EDUCATION / CARDS -------- */
+.education{
+  padding:60px 0;
+  margin-top:18px;
+}
+
+.title h2{
+  font-size:32px;
+  text-align:center;
+  margin-bottom:28px;
+  color:var(--text);
+}
+
+/* card row container */
+.box{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  justify-content:center;
+  overflow-x:auto;
+  padding:18px 6px;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* generic card style */
+.card{
+  min-width:280px;
+  max-width:340px;
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  padding:20px;
+  margin:8px;
+  border:1px solid var(--glass-border);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+  color:var(--text);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  transition: transform var(--transition), box-shadow var(--transition);
+  scroll-snap-align:center;
+}
+.card i{font-size:42px;color:var(--accent);text-align:center;margin-bottom:12px}
+.card h5{font-size:18px;margin-bottom:8px;color:var(--text)}
+.pra{color:var(--muted);font-size:14px;line-height:1.5}
+
+/* hover */
+.card:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 26px 60px rgba(0,0,0,0.6), 0 0 30px rgba(0,191,255,0.06);
+}
+
+/* project-specific small button inside card */
+.card .button{
+  display:inline-block;
+  margin-top:10px;
+  background:var(--accent);
+  color:#001;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:700;
+  text-decoration:none;
+}
+
+/* -------- PROJECT SECTION (cards slider) -------- */
+.project{
+  padding:60px 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent 40%);
+}
+.project .title h2{font-size:32px;color:var(--text);text-align:center;margin-bottom:18px}
+.slider-container{width:100%}
+.project .box{
+  gap:18px;
+  padding:16px;
+  /* allow horizontal scroll on small screens */
+}
+
+/* style scrollbar (WebKit) */
+.box::-webkit-scrollbar{height:8px}
+.box::-webkit-scrollbar-thumb{background:rgba(0,191,255,0.18);border-radius:8px}
+.box::-webkit-scrollbar-track{background:transparent}
+
+/* project card tweaks */
+.project .card{min-width:260px;max-width:320px}
+
+/* -------- SKILLS -------- */
+.skillsets{
+  padding:60px 0;
+  display:flex;
+  gap:24px;
+  align-items:flex-start;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* left side programming skills */
+.skillsets .skill{
+  background:var(--card-bg);
+  border:1px solid var(--glass-border);
+  padding:22px;
+  border-radius:12px;
+  min-width:260px;
+  max-width:520px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+}
+.skillsets .skill p{text-align:center;font-size:20px;margin-bottom:12px;color:var(--text)}
+.skillsets .skill li{list-style:none;margin:10px 0;display:flex;flex-direction:column;gap:8px}
+.skill h3{font-size:16px;color:var(--text);margin-bottom:6px}
+.skill .bar{
+  background:rgba(0,0,0,0.3);
+  height:18px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)
+}
+.skill .bar span{display:block;height:100%;border-radius:12px;background:linear-gradient(90deg,var(--accent), #67b4fc);transition:width 1.2s cubic-bezier(.2,.9,.2,1)}
+
+/* percentages (widths) */
+.c{width:90%}
+.java{width:80%}
+.python{width:75%}
+.kotlin{width:70%}
+
+/* circle/interpersonal skills */
+.circle-skill{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  background:var(--card-bg);
+  border:1px solid var(--glass-border);
+  padding:24px;border-radius:12px;min-width:260px;
+}
+.circle-skill p{font-size:20px;color:var(--text)}
+.ui-widget{
+  width:11.5rem;height:11.5rem;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;border:8px solid rgba(0,191,255,0.14);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+  color:var(--text);font-weight:700;font-size:20px;
+}
+
+/* -------- FOOTER -------- */
+footer{
+  padding:38px 0 70px;
+  margin-top:24px;
+  text-align:center;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent 20%);
+  border-top: 1px solid rgba(255,255,255,0.02);
+}
+footer p{color:var(--muted)}
+footer p:nth-child(1){font-size:20px;color:var(--text);font-weight:700;margin-bottom:8px}
+footer p:nth-child(2){max-width:720px;margin:0 auto;line-height:1.6;color:var(--muted);margin-bottom:18px}
+.social{display:flex;gap:8px;justify-content:center;align-items:center;margin:18px 0}
+.social a{
+  width:46px;height:46px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  background:var(--accent);color:#001;text-decoration:none;font-size:18px;transition:transform var(--transition)
+}
+.social a:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(0,191,255,0.12)}
+.end{display:block;color:var(--accent);margin-top:20px;font-size:13px}
+
+/* -------- ANIMATIONS - subtle entrance -------- */
+.fade-in{opacity:0;animation:fadeIn .9s forwards}
+@keyframes fadeIn{to{opacity:1}}
+
+.slide-up{opacity:0;transform:translateY(18px);animation:slideUp .7s forwards}
+@keyframes slideUp{to{opacity:1;transform:translateY(0)}}
+
+/* -------- RESPONSIVE BREAKPOINTS -------- */
+
+/* medium screens (tablets) */
+@media (min-width: 769px) and (max-width: 1024px){
+  .content h1{font-size:40px}
+  .about img{max-width:44%}
+  .img-box{flex-basis:320px}
+  .card{min-width:300px}
+}
+
+/* small devices - stack layout, optimize spacing */
+@media (max-width: 768px){
+  nav .container{padding-left:12px;padding-right:12px}
+  nav ul{display:none} /* hide nav links on narrow screens to avoid overflow */
+  .btn{display:none}  /* hide CV button - show via page link instead */
+  .intro{padding-top:86px}
+  .content h1{font-size:32px}
+  .content h3{font-size:15px}
+  .img-box{flex-basis:100%;display:flex;justify-content:center;margin-bottom:8px}
+  .about .main{flex-direction:column-reverse;gap:20px}
+  .about img{max-width:88%;width:360px}
+  .about-text{width:100%}
+  .box{flex-direction:row;gap:14px;padding:12px}
+  .card{min-width:240px}
+  .skillsets{flex-direction:column;gap:16px;padding:30px 8px}
+  .skillsets .skill,.circle-skill{width:100%}
+  footer p:nth-child(2){padding:0 10px}
+}
+
+/* very small phones */
+@media (max-width: 420px){
+  .content h1{font-size:26px}
+  .img-box img{width:220px}
+  .card{min-width:220px; padding:16px}
+  .skill .bar{height:14px}
+  .ui-widget{width:10.2rem;height:10.2rem;font-size:18px;border-width:6px}
+}
+
+/* large screens */
+@media (min-width: 1200px){
+  .content h1{font-size:56px}
+  .about img{width:460px}
+  .img-box img{width:360px}
+  .box{justify-content:center}
+}
+
+/* Accessibility: reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+}
