@@ -723,7 +723,7 @@ footer p:nth-child(2) {
         position: absolute;
         display: block;
         height: auto;
-        max-width: 220px;
+        max-width: 360px;
         transform: none;
         left: 25%;
         right: auto;
@@ -900,4 +900,5 @@ footer p:nth-child(2) {
         font-size: 16px;
     }
 }
+
 
