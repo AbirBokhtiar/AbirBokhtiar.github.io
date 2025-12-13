@@ -703,7 +703,7 @@ footer p:nth-child(2) {
     }
 
     .content .contact_con {
-        margin: 260px auto;
+        margin: 360px auto;
         z-index: 2;
     }
 
@@ -900,3 +900,4 @@ footer p:nth-child(2) {
         font-size: 16px;
     }
 }
+
