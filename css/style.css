@@ -703,8 +703,9 @@ footer p:nth-child(2) {
     }
 
     .content .contact_con {
-        margin-top: 200px;
+        margin-top: 80%;
         margin-bottom: auto;
+        z-index: 9999;
     }
 
     .img-box {
@@ -718,9 +719,10 @@ footer p:nth-child(2) {
     .img-box img {
         height: 50%;
         border-radius: 50%;
-        position: absolute;
+        /* position: absolute; */
         left: 75%;
         bottom: 10%;
+        top: 30%;
         transform: translateX(-50%);
         transition: bottom 1s, left 1s;
     }
@@ -874,8 +876,8 @@ footer p:nth-child(2) {
     #scrollTopBtn {
         bottom: 20px;
         right: 20px;
-        width: 45px;
-        height: 45px;
+        width: 5%;
+        height: 10%;
         font-size: 18px;
     }
 }
